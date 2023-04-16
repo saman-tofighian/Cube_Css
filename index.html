@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 350px;
+            height: 350px;
+            margin: 150px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cube 10s linear infinite alternate;
+        }
+        .box:hover{
+            animation-play-state: paused;
+        }
+        .box>div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: 4rem;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        @keyframes cube {
+            from{
+                transform: perspective(500px) rotateY(0deg);
+            }
+            from{
+                transform: perspective(500px) rotateY(360deg);
+            }
+        }
+        .box>div:nth-child(odd){
+            background-color: rgba(173, 9, 9, 0.597);
+        }
+        .box>div:nth-child(even){
+            background-color: rgba(13, 39, 155, 0.597);
+        }
+        .box>div:nth-last-of-type(1){
+            transform-origin: left;
+            transform: rotateY(-90deg) translateX(-50%);
+        }
+        .box>div:nth-last-of-type(2){
+            transform-origin: right;
+            transform: rotateY(90deg) translateX(50%);
+        }
+        .box>div:nth-last-of-type(3){
+            transform: translateZ(175px);
+        }
+        .box>div:nth-last-of-type(4){
+            transform: translateZ(-175px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>Saman</div>
+        <div>Saman</div>
+        <div>Saman</div>
+        <div>Saman</div>
+    </div>
+</body>
+</html>
